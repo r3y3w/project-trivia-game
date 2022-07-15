@@ -1,0 +1,44 @@
+/******** Normalize CSS */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: rgb(254, 254, 254);
+    background: linear-gradient(300deg, rgb(254, 254, 254) 0%, rgb(0, 204, 250) 100%);
+    background-repeat: no-repeat;
+    height: 100vh;
+    text-align: center;
+}
+
+main {
+    border: solid 1px rgb(13, 13, 12);
+    border-radius: 5px;
+}
+main > button {
+    background-color: #e8fb5b;
+    width: 10rem;
+    border: solid 1px gray;
+    border-radius: 5px;
+    color: black;
+    width: 300px;
+    margin: 20px;
+    text-transform: uppercase;
+    font-size: 10rem;
+    opacity: 1;
+    transition: 0.3s;    
+}
+
+main > button:hover {
+    background-color: rgb(205, 205, 205);
+    opacity: 0.6;
+}
