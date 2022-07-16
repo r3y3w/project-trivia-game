@@ -1,32 +1,36 @@
-const questions = {
-    "questions": [
-        {
-            "question": "The capital of Florida is Miami.",
-            "answer": false
-        },
-        {
-            "question": "The capital of California is Sacramento.",
-            "answer": true
-        },
-        {
-            "question": "The United States was founded in 1998.",
-            "answer": false
-        },
-        {
-            "question": "Albert Einstein is Magician",
-            "answer": false
-        },
-        {
-            "question": "The inventor of the first computer is Alan Turing.",
-            "answer": true
-        },
-        {
-            "question": "Darth Vader is Captain James T. Kirk's father",
-            "answer": false
-        }
-    ]
-}
 
+
+// {
+//     "questions": [
+//         {
+//             "question": "The capital of Florida is Miami.",
+//             "answer": false
+//         },
+//         {
+//             "question": "The capital of California is Sacramento.",
+//             "answer": true
+//         },
+//         {
+//             "question": "The United States was founded in 1998.",
+//             "answer": false
+//         },
+//         {
+//             "question": "Albert Einstein is Magician",
+//             "answer": false
+//         },
+//         {
+//             "question": "The inventor of the first computer is Alan Turing.",
+//             "answer": true
+//         },
+//         {
+//             "question": "Darth Vader is Captain James T. Kirk's father",
+//             "answer": false
+//         }
+//     ]
+// }
+
+
+const questions = testQuestion
 const question = document.getElementById('question')
 
 let playerScore = 0
@@ -58,26 +62,43 @@ function nextQuestion() {
     if (questionIndex >= questions.questions.length) {
         didReachLastQuestion = true
          playerScorePercent =  (playerScore / questions.questions.length ) * 100
+         const result = playerScorePercent.toFixed(0)
          const youSuck = 'You Suck!!'
          const youRock = 'You Rock!!'
-        
-            if (playerScorePercent < 60 ) {
-                //then message "You Suck!!!"
-                yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent.toFixed(0)} % Score.  ${youSuck}`
+         let endGameMessage = ''
+             // if (playerScorePercent < 60 ) {
+            //     //then message "You Suck!!!"
+            //     yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent.toFixed(0)} % Score.  ${youSuck}`
+            //     question.innerText = yourFinalScore
+            //     shouldHideAnswerButtons(true)
+            // } else {
+            // //  Message "You Rock!!! "  
+            //     yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent.toFixed(0)} % Score.  ${youRock}`
+            //     question.innerText = yourFinalScore
+            //     shouldHideAnswerButtons(true)
+            // } 
+
+            if (playerScorePercent < 30 ) {
+                //then message "You need more practice,  Try again!!"
+                    endGameMessage = "You need more practice,  Try again!!"
+                } else if(playerScorePercent < 80){
+                //  Message "Good Job!! "  
+                    endGameMessage = "Good Job!!  You Rock!!!"
+                } else if (playerScorePercent < 99){
+                    endGameMessage = "You Rock!!!"
+                } else {
+                    endGameMessage = "Perfect Score!!! "
+                }
+
+                yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${result} % Score ${endGameMessage}.`
                 question.innerText = yourFinalScore
                 shouldHideAnswerButtons(true)
-            } else {
-            //  Message "You Rock!!! "  
-                yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent.toFixed(0)} % Score.  ${youRock}`
-                question.innerText = yourFinalScore
-                shouldHideAnswerButtons(true)
-            } 
 
 
-       
     //    // const yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent.toFixed(0)} % Score`
     //     question.innerText = yourFinalScore
     //     shouldHideAnswerButtons(true)
+
     } else {
         question.innerText = questions.questions[questionIndex].question
     }
