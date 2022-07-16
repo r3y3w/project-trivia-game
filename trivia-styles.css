@@ -21,19 +21,19 @@ body {
 }
 
 main {
-    border: solid 1px rgb(13, 13, 12);
+    border: solid 1px rgb(26, 26, 24);
     border-radius: 5px;
 }
 main > button {
     background-color: #e8fb5b;
-    width: 10rem;
+    width: 20rem;
     border: solid 1px gray;
     border-radius: 5px;
     color: black;
-    width: 300px;
+    width: 400px;
     margin: 20px;
     text-transform: uppercase;
-    font-size: 10rem;
+    font-size: 40rem;
     opacity: 1;
     transition: 0.3s;    
 }

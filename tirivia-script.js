@@ -58,9 +58,26 @@ function nextQuestion() {
     if (questionIndex >= questions.questions.length) {
         didReachLastQuestion = true
          playerScorePercent =  (playerScore / questions.questions.length ) * 100
-        const yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent} % Score`
-        question.innerText = yourFinalScore
-        shouldHideAnswerButtons(true)
+         const youSuck = 'You Suck!!'
+         const youRock = 'You Rock!!'
+        
+            if (playerScorePercent < 60 ) {
+                //then message "You Suck!!!"
+                yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent.toFixed(0)} % Score.  ${youSuck}`
+                question.innerText = yourFinalScore
+                shouldHideAnswerButtons(true)
+            } else {
+            //  Message "You Rock!!! "  
+                yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent.toFixed(0)} % Score.  ${youRock}`
+                question.innerText = yourFinalScore
+                shouldHideAnswerButtons(true)
+            } 
+
+
+       
+    //    // const yourFinalScore = `Your score is ${playerScore} / ${questions.questions.length}. You get a ${playerScorePercent.toFixed(0)} % Score`
+    //     question.innerText = yourFinalScore
+    //     shouldHideAnswerButtons(true)
     } else {
         question.innerText = questions.questions[questionIndex].question
     }
